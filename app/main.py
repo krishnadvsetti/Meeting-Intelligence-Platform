@@ -1,13 +1,15 @@
 from fastapi import FastAPI
+from app.api.rag import router as rag_router
 
 app = FastAPI(
-    title="Meeting Intelligence Platform",
-    version="1.0.0"
+    title="Meeting Intelligence Platform"
 )
+
+app.include_router(rag_router)
+
 
 @app.get("/")
 def root():
     return {
-        "status": "running",
-        "project": "Meeting Intelligence Platform"
+        "message": "Meeting Intelligence Platform"
     }
