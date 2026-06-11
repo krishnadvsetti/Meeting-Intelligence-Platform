@@ -1,20 +1,36 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Depends, HTTPException
+from sqlalchemy.orm import Session
 
-from app.services.transcript_loader import load_transcript
+from app.db.session import get_db
+from app.services.meeting_service import get_meeting_by_id
 from app.services.summary_service import generate_summary
 
 router = APIRouter()
 
 
-@router.post("/summary")
-def summarize_meeting():
+@router.post("/summary/{meeting_id}")
+def summarize_meeting(
+    meeting_id: int,
+    db: Session = Depends(get_db)
+):
 
-    transcript = load_transcript(
-        "data/transcripts/meeting_001.txt"
+    meeting = get_meeting_by_id(
+        meeting_id,
+        db
     )
 
-    summary = generate_summary(transcript)
+    if not meeting:
+        raise HTTPException(
+            status_code=404,
+            detail="Meeting not found"
+        )
+
+    summary = generate_summary(
+        meeting.transcript
+    )
 
     return {
+        "meeting_id": meeting.id,
+        "title": meeting.title,
         "summary": summary
     }
