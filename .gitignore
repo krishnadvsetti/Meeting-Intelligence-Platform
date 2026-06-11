@@ -216,3 +216,17 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# ChromaDB
+chroma_db/
+.chroma/
+
+# Dataset files
+data/qmsum/
+
+# Local database exports
+*.sql
+
+# OS files
+.DS_Store
+Thumbs.db
