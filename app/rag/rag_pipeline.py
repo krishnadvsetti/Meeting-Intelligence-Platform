@@ -1,18 +1,6 @@
-import os
-
-from dotenv import load_dotenv
-import google.generativeai as genai
-
 from app.rag.embeddings import create_embeddings
 from app.rag.vector_store import search
-
-load_dotenv()
-
-genai.configure(
-    api_key=os.getenv("GEMINI_API_KEY")
-)
-
-model = genai.GenerativeModel("gemini-2.5-flash")
+from app.llm.gemini_client import model
 
 
 def answer_question(question: str):
