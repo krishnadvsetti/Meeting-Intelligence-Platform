@@ -37,4 +37,11 @@ def list_meetings(
 
     meetings = db.query(Meeting).all()
 
-    return meetings
+    return [
+        {
+            "id": meeting.id,
+            "title": meeting.title,
+            "source": meeting.source
+        }
+        for meeting in meetings
+    ]

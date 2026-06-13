@@ -1,0 +1,17 @@
+fastapi
+uvicorn
+sqlalchemy
+psycopg2-binary
+python-multipart
+python-dotenv
+
+faster-whisper
+
+chromadb
+sentence-transformers
+
+google-generativeai
+
+pydantic
+
+mcp

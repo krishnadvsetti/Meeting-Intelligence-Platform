@@ -1,29 +1,22 @@
-from app.agents.meeting_agent import (
-    run_agent
-)
+from app.agents.meeting_agent import run_agent
 
+print("\n=== LIST MEETINGS ===")
 print(
     run_agent(
-        "list meetings"
+        "Show all meetings"
     )
 )
 
-from app.agents.meeting_agent import (
-    run_agent
-)
-
+print("\n=== SUMMARY ===")
 print(
     run_agent(
-        "summary 2"
+        "Summarize meeting 2"
     )
 )
 
-from app.agents.meeting_agent import (
-    run_agent
-)
-
+print("\n=== ACTION ITEMS ===")
 print(
     run_agent(
-        "action items 2"
+        "Get action items from meeting 2"
     )
 )

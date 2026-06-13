@@ -1,0 +1,8 @@
+__pycache__
+*.pyc
+.env
+venv
+meeting-ai
+frontend/node_modules
+uploads
+chroma_db

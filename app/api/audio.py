@@ -44,7 +44,8 @@ async def upload_audio(
     db.refresh(meeting)
 
     return {
-        "meeting_id": meeting.id,
-        "title": meeting.title,
-        "source": meeting.source
-    }
+    "meeting_id": meeting.id,
+    "title": meeting.title,
+    "source": meeting.source,
+    "transcript": transcript
+}
